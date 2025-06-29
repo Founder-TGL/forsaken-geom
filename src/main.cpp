@@ -9,7 +9,7 @@
 #include<filesystem>
 // #include"shaderClass.h"
 #include "PreFabs/shapeData.h"
-// #include "Camera.h"
+#include "Camera.h"
 #include "Renderable/Renderable.h"
 // #include "player.h"
 // #include "Scene.h"
@@ -38,11 +38,23 @@ int main() {
     glViewport(0, 0, width, height);
     glEnable(GL_DEPTH_TEST);
 
+
+    Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
 
+    Camera camera(width, height, glm::vec3(0.0f, 1.0f, 0.0f));
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     while (!glfwWindowShouldClose(window)) {
+
+		shaderProgram.Activate();
+
+        camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+
         glClearColor(0.0f, 0.0f, 0.01f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        pyramid.Draw(shaderProgram);
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

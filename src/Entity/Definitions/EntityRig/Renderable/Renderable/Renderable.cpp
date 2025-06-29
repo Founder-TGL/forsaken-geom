@@ -19,6 +19,7 @@ Renderable::Renderable(float* vertices, size_t vertSize, GLuint* indices, size_t
         this->vertices = std::move(vec);    
         this->indices = std::move(ind);
         vao.Bind();
+        vbo.Bind();
         ebo.Bind();
         vao.LinkAttrib(vbo, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0); // position
         vao.LinkAttrib(vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float))); // normal/color
@@ -29,8 +30,10 @@ Renderable::Renderable(float* vertices, size_t vertSize, GLuint* indices, size_t
     }
  void Renderable::Draw(Shader& shader) {
         glm::mat4 model = glm::mat4(1.0f);
-
         
+        std::cout << "Drawing frame\n"; 
+        std::cout << "Index Count: " << indexCount << std::endl;
+
         model = glm::translate(model, position);
 
         // 3) build a "look‐at" quaternion turning +Z → forward

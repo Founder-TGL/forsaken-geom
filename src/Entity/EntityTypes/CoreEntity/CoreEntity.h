@@ -1,7 +1,7 @@
 #ifndef CORE_ENTITY_H
 #define CORE_ENTITY_H
 
-#include "Renderable.h"
+#include "Renderable/Renderable.h"
 #include "EntityRig.h"
 
 class CoreEntity

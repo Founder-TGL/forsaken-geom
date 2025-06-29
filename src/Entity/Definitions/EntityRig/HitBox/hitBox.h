@@ -30,6 +30,6 @@ namespace Hitbox {
   // Full SAT test between two OBBs
   bool doOBBsIntersect(const OBB& a, const OBB& b);
 
-} // namespace Hitbox
+  void debugDraw(const OBB& box, const glm::mat4& MVP);
 
 #endif

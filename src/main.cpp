@@ -43,7 +43,6 @@ int main() {
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
 
     Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     while (!glfwWindowShouldClose(window)) {
 
 		shaderProgram.Activate();
@@ -57,7 +56,7 @@ int main() {
 
         glfwSwapBuffers(window);
         glfwPollEvents();
-    }
+    }   
 
 
 

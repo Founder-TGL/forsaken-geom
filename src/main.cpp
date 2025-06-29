@@ -42,7 +42,7 @@ int main() {
     Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
 
-    Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+    Camera camera(width, height, glm::vec3(0.0f, 1.0f, 2.0f));
     while (!glfwWindowShouldClose(window)) {
 
 		shaderProgram.Activate();

@@ -28,8 +28,7 @@ class Player
 
         glm::vec3 Input(float deltaTime, GLFWwindow* window);
         void moveCamera();
-        bool isDead() const { return health <= 0; std::cout << "player health " << health << std::endl;
-}
+        bool isDead() const { return health <= 0; std::cout << "player health " << health << std::endl;}
 
 };
 

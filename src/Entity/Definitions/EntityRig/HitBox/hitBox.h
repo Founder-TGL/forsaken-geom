@@ -32,4 +32,6 @@ namespace Hitbox {
 
   void debugDraw(const OBB& box, const glm::mat4& MVP);
 
+} // namespace Hitbox
+
 #endif

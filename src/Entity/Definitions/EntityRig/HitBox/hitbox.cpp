@@ -85,6 +85,6 @@ void debugDraw(const OBB& box, const glm::mat4& MVP) // TODO: GET THIS WORKING
 //     corners[i] = box.center + offset;
 // }
   
-// }
-
 }
+
+} // namespace Hitbox

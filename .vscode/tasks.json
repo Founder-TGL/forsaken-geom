@@ -9,6 +9,7 @@
                 "-std=c++17",
                 "-L${workspaceFolder}/lib",
                 "-I${workspaceFolder}/include",
+                "-I${workspaceFolder}/src",
                 "-I${workspaceFolder}/src/Shaders",
                 "-I${workspaceFolder}/src/Entity/Definitions/Camera",
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable",

@@ -1,6 +1,10 @@
+#ifndef WORLD_CONTEXT_H
+#define WORLD_CONTEXT_H
+
 #include<vector>
 
-#include"CoreEntity.h"
+class CoreEntity;
+
 
 struct WorldContext {
     inline static WorldContext* s_instance = nullptr; 
@@ -9,3 +13,5 @@ struct WorldContext {
 
     static void SetInstance(WorldContext* ctx) { s_instance = ctx; }
 };
+
+#endif

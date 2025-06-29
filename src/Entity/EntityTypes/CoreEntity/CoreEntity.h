@@ -3,11 +3,15 @@
 
 #include "Renderable/Renderable.h"
 #include "EntityRig.h"
+#include "WorldContext.h"
 
 class CoreEntity
 {
     protected:
-    static std::vector<CoreEntity*>* s_collidables;
+    std::vector<CoreEntity*>& getCollidables() {
+        return *WorldContext::s_instance->collidables;
+    }
+
 
     public:
         EntityRig entityRig;
@@ -17,10 +21,6 @@ class CoreEntity
         CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orient);
 
         virtual void Draw(Shader& shader);
-
-        // static void SetCollidableList(std::vector<CoreEntity*>* list) {
-        //     s_collidables = list;
-        // }
 
 };
 

@@ -17,8 +17,8 @@ class CoreCharEntity : public CoreEntity
         bool isDead() const { return health <= 0; std::cout << "player health " << health << std::endl;}
         // void Draw(Shader& shader) override;
 
-        void moveChar(std::vector<CoreEntity> collidables, glm::vec3 direction);
-        bool isMoveValid(std::vector<CoreEntity> collidables, glm::vec3 direction);
+        void moveChar(glm::vec3 direction);
+        bool isMoveValid(glm::vec3 direction);
 };
 
 #endif

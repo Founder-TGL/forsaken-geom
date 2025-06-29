@@ -6,6 +6,9 @@
 
 class CoreEntity
 {
+    protected:
+    static std::vector<CoreEntity*>* s_collidables;
+
     public:
         EntityRig entityRig;
         glm::vec3 position;
@@ -14,6 +17,11 @@ class CoreEntity
         CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orient);
 
         virtual void Draw(Shader& shader);
+
+        static void SetCollidableList(std::vector<CoreEntity*>* list) {
+            s_collidables = list;
+        }
+
 };
 
 #endif

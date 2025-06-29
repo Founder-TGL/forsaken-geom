@@ -1,12 +1,12 @@
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
+#include<vector>
 
 #include<glad/glad.h>
 #include<glm/glm.hpp>
-#include"VAO.h"
-#include"VBO.h"
-#include<vector>
-#include"EBO.h"
+#include"VAO/VAO.h"
+#include"VBO/VBO.h"
+#include"EBO/EBO.h"
 #include"shaderClass.h"
 
 class Renderable {

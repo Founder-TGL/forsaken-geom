@@ -8,9 +8,9 @@
 #include<GLFW/glfw3.h>
 #include<filesystem>
 // #include"shaderClass.h"
-// #include "shapeData.h"
+#include "PreFabs/shapeData.h"
 // #include "Camera.h"
-// #include "Renderable.h"
+#include "Renderable/Renderable.h"
 // #include "player.h"
 // #include "Scene.h"
 
@@ -38,7 +38,7 @@ int main() {
     glViewport(0, 0, width, height);
     glEnable(GL_DEPTH_TEST);
 
-
+    Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
 
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.0f, 0.0f, 0.01f, 1.0f);

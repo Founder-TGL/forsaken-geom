@@ -1,9 +1,10 @@
 #ifndef GAME_OBJECT_H
 #define GAME_OBJECT_H
 #include "Renderable/Renderable.h"
-#include "HitBox/hitBox.h"
+#include "hitBox.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
+
 
 class EntityRig {
 public:
@@ -26,7 +27,7 @@ public:
   
   void computeLocalBounds();   // read mesh verts → localHalfExtents
 
-  bool wouldCollide(const glm::vec3& newPos, const GameObject& other);
+  bool wouldCollide(const glm::vec3& newPos, const EntityRig& other);
 
   Renderable mesh;             // visual
   glm::vec3  position;         // location

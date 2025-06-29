@@ -22,6 +22,7 @@
                 "${workspaceFolder}/src/Entity/Definitions/Camera/Camera.cpp",
 
                 "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/CoreCharEntity/CoreCharEntity.cpp",
+                "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/PlayerEntity/PlayerEntity.cpp",
                 "${workspaceFolder}/src/Entity/EntityTypes/CoreEntity/CoreEntity.cpp",
 
 

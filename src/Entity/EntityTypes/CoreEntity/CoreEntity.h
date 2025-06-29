@@ -18,9 +18,9 @@ class CoreEntity
 
         virtual void Draw(Shader& shader);
 
-        static void SetCollidableList(std::vector<CoreEntity*>* list) {
-            s_collidables = list;
-        }
+        // static void SetCollidableList(std::vector<CoreEntity*>* list) {
+        //     s_collidables = list;
+        // }
 
 };
 

@@ -11,7 +11,8 @@ PlayerEntity::PlayerEntity(EntityRig entRig, int health, int width,int height,gl
     // moveCamera();
 }
 
-void PlayerEntity::Input(float deltaTime, GLFWwindow* window){
+void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
+{
 
 }
 

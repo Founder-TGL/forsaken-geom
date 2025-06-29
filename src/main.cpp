@@ -8,6 +8,8 @@
 #include<GLFW/glfw3.h>
 #include<filesystem>
 // #include"shaderClass.h"
+#include "WorldContext.h"
+
 #include "PreFabs/shapeData.h"
 #include "Camera.h"
 #include "Renderable/Renderable.h"
@@ -40,6 +42,11 @@ int main() {
     glViewport(0, 0, width, height);
     glEnable(GL_DEPTH_TEST);
 
+    //stores all the collidables in a world class sop they can be cccess from entities without needing it passed in
+    std::vector<CoreEntity*> collidables;
+    WorldContext world;
+    world.collidables = &collidables;
+    WorldContext::SetInstance(&world); 
 
     Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);

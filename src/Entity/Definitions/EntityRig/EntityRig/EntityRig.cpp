@@ -1,10 +1,10 @@
 #define GLM_ENABLE_EXPERIMENTAL
 
-#include "GameObject.h"
+#include "EntityRig.h"
 #include <glm/gtc/matrix_transform.hpp>
 
-GameObject::GameObject(Renderable m)
-  : mesh(m)
+EntityRig::EntityRig(Renderable mesh)
+  : mesh(mesh)
 {
   // 1) compute the model‐space half extents from the mesh
   computeLocalBounds();
@@ -13,7 +13,7 @@ GameObject::GameObject(Renderable m)
   update();
 }
 
-void GameObject::computeLocalBounds() {
+void EntityRig::computeLocalBounds() {
   // mimic Renderable::computeLocalBounds
   glm::vec3 minP(+FLT_MAX), maxP(-FLT_MAX);
   auto& verts = mesh.vertices; // assume you expose raw verts
@@ -29,7 +29,7 @@ void GameObject::computeLocalBounds() {
   localHalfExtents = (maxP - minP) * 0.5f;
 }
 
-void GameObject::update() {
+void EntityRig::update() {
   // 1) update mesh’s own transform
   mesh.position = position;
   mesh.orientation = orientation;
@@ -39,11 +39,11 @@ void GameObject::update() {
   obb.setFromTransform(position, orientation, scale, localHalfExtents);
 }
 
-void GameObject::Draw(Shader& shader) {
+void EntityRig::Draw(Shader& shader) {
   mesh.Draw(shader);
 }
 
-bool GameObject::wouldCollide(const glm::vec3& newPos, const GameObject& other)
+bool EntityRig::wouldCollide(const glm::vec3& newPos, const EntityRig& other)
 {
     Hitbox::OBB futureOBB;
     futureOBB.setFromTransform(newPos, orientation, scale, localHalfExtents);

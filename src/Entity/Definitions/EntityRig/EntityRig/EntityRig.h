@@ -1,14 +1,14 @@
 #ifndef GAME_OBJECT_H
 #define GAME_OBJECT_H
-#include "Renderable.h"
-#include "Hitbox.h"
+#include "Renderable/Renderable.h"
+#include "HitBox/hitBox.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-class GameObject {
+class EntityRig {
 public:
   // ctor: takes ownership of a mesh
-  GameObject(Renderable mesh);
+  EntityRig(Renderable mesh);
 
   // set transform
   void setPosition(const glm::vec3& p)   { position = p; }
@@ -23,6 +23,10 @@ public:
 
   // access for collisions
   const Hitbox::OBB& getOBB() const { return obb; }
+  
+  void computeLocalBounds();   // read mesh verts → localHalfExtents
+
+  bool wouldCollide(const glm::vec3& newPos, const GameObject& other);
 
   Renderable mesh;             // visual
   glm::vec3  position;         // location
@@ -32,9 +36,6 @@ public:
   glm::vec3  localHalfExtents; // cached from mesh
   Hitbox::OBB obb;             // runtime collision box
 
-  void computeLocalBounds();   // read mesh verts → localHalfExtents
-
-  bool wouldCollide(const glm::vec3& newPos, const GameObject& other);
 };
 
 #endif

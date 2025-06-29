@@ -68,7 +68,8 @@ bool doOBBsIntersect(const OBB& a, const OBB& b) {
   return true; // no separating axis found
 }
 
-void debugDraw(const OBB& box, const glm::mat4& MVP) // TODO: GET THIS WORKING
+
+  void debugDraw(const OBB& box, const glm::mat4& MVP) // TODO: GET THIS WORKING
 {
 //   glm::vec3 corners[8];
 // for (int i = 0; i < 8; ++i)
@@ -85,6 +86,7 @@ void debugDraw(const OBB& box, const glm::mat4& MVP) // TODO: GET THIS WORKING
 //     corners[i] = box.center + offset;
 // }
   
+// }
 }
 
 } // namespace Hitbox

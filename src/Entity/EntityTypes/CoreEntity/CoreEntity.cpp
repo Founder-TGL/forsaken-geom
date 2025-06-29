@@ -4,4 +4,6 @@
 #include "Renderable.h"
 
 
-CoreEntity::CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orent) : EntityRig(entRig), position(pos), orientation(orient){}
+CoreEntity::CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orient) : entityRig(std::move(entRig)), position(pos), orientation(orient){}
+
+void CoreEntity::Draw(Shader& shader){entityRig.Draw(shader);}

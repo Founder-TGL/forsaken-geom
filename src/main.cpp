@@ -11,6 +11,8 @@
 #include "PreFabs/shapeData.h"
 #include "Camera.h"
 #include "Renderable/Renderable.h"
+#include "EntityRig.h"
+#include "CoreCharEntity/CoreCharEntity.h"
 // #include "player.h"
 // #include "Scene.h"
 
@@ -41,6 +43,8 @@ int main() {
 
     Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
+    EntityRig pyramidTestRig(pyramid);
+    CoreCharEntity testPyramid(pyramidTestRig);
 
     Camera camera(width, height, glm::vec3(0.0f, 1.0f, 2.0f));
     while (!glfwWindowShouldClose(window)) {
@@ -52,7 +56,7 @@ int main() {
         glClearColor(0.0f, 0.0f, 0.01f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        pyramid.Draw(shaderProgram);
+        testPyramid.Draw(shaderProgram);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

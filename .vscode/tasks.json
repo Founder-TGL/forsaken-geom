@@ -14,11 +14,14 @@
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable",
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/HitBox",
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig",
-                "-I${workspaceFolder}/src/Entity/Definitions/EntityType",
+                "-I${workspaceFolder}/src/Entity/EntityTypes",
                 "${workspaceFolder}/src/Shaders/shaderClass.cpp",
                 "${workspaceFolder}/src/main.cpp",
                 "${workspaceFolder}/src/glad.c",
                 "${workspaceFolder}/src/Entity/Definitions/Camera/Camera.cpp",
+
+                "${workspaceFolder}/src/Entity/EntityTypes/CoreCharEntity/CoreCharEntity.cpp",
+
                 "${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig/EntityRig.cpp",
                 "${workspaceFolder}/src/Entity/Definitions/EntityRig/HitBox/hitBox.cpp",
                 "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/VAO/VAO.cpp",

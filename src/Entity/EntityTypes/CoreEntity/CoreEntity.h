@@ -6,13 +6,14 @@
 
 class CoreEntity
 {
-    EntityRig entityRig;
-    glm::vec3 position;
-    glm::vec3 orientation;    
+    public:
+        EntityRig entityRig;
+        glm::vec3 position;
+        glm::vec3 orientation;    
 
-    CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orient);
+        CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orient);
 
-    virtual void Draw(Shader& shader);
+        virtual void Draw(Shader& shader);
 };
 
 #endif

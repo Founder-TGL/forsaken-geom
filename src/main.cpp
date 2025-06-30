@@ -52,7 +52,7 @@ int main() {
     Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
     EntityRig pyramidTestRig(pyramid);
-    EnemyEntity testPyramid(pyramidTestRig, 10, 0.1f,  glm::vec3{0.0f, 0.0f, 5.0f});
+    EnemyEntity testPyramid(pyramidTestRig, 10, 0.1f, 5,  glm::vec3{0.0f, 0.0f, 5.0f});
 
     PlayerEntity player(pyramid, 10, 1.0f, width, height);
 

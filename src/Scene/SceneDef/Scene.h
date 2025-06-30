@@ -3,6 +3,7 @@
 
 #include "PlayerEntity/PlayerEntity.h"
 #include "CoreEntity.h"
+#include "EnemyEntity/EnemyEntity.h"
 #include <vector>
 
 class Scene {

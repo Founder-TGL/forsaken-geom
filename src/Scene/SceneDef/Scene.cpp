@@ -50,5 +50,8 @@ void Scene::render(Shader& shader) {
 
 void Scene::enemyInteraction(EnemyEntity* enemy)
 {
-  enemy->aimAt(this->player);
+  if (enemy->targetDetection(player))
+  {
+    enemy->aimAt(this->player);
+  }
 }

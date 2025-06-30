@@ -15,7 +15,7 @@
 #include "Renderable/Renderable.h"
 #include "EntityRig.h"
 #include "CoreCharEntity/CoreCharEntity.h"
-// #include "player.h"
+#include "PlayerEntity/PlayerEntity.h"
 // #include "Scene.h"
 
 #include <math.h>
@@ -51,19 +51,32 @@ int main() {
     Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
     EntityRig pyramidTestRig(pyramid);
-    CoreCharEntity testPyramid(pyramidTestRig, 10);
+    CoreEntity testPyramid(pyramidTestRig);
 
     Camera camera(width, height, glm::vec3(0.0f, 1.0f, 2.0f));
+
+    PlayerEntity player(pyramid, 10, width, height);
+
+    collidables.push_back(&testPyramid);
+    collidables.push_back(&player); 
+    
+    float lastTime = glfwGetTime();
     while (!glfwWindowShouldClose(window)) {
+        float currentTime = glfwGetTime();
+        float deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
 
 		shaderProgram.Activate();
 
-        camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+        player.playerCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+
+        player.Input(deltaTime, window);
 
         glClearColor(0.0f, 0.0f, 0.01f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         testPyramid.Draw(shaderProgram);
+        player.Draw(shaderProgram);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

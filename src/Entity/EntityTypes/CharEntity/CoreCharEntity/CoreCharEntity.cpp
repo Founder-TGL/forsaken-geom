@@ -28,3 +28,8 @@ bool CoreCharEntity::isMoveValid(glm::vec3 projectedPosition)
     }
     return true;
 }
+
+void CoreCharEntity::Draw(Shader& shader)
+{
+
+}

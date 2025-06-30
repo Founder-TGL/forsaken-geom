@@ -13,6 +13,31 @@ PlayerEntity::PlayerEntity(EntityRig entRig, int health, int width,int height,gl
 
 void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
 {
+    if (mouseLocked) {
+        double mouseX, mouseY;
+        glfwGetCursorPos(window, &mouseX, &mouseY);
+
+        float deltaX = float(mouseX - width / 2);
+        float sensitivity = 0.15f;
+        yaw -= deltaX * sensitivity;
+
+        if (yaw > 360.f) yaw -= 360.f;
+        if (yaw < 0.f) yaw += 360.f;
+
+        orientation = glm::normalize(glm::vec3(sin(glm::radians(yaw)),0.0f,cos(glm::radians(yaw))));
+
+        glfwSetCursorPos(window, width / 2, height / 2);
+    }
+
+    glm::vec3 dir(0.0f);
+    glm::vec3 forward = orientation;
+    glm::vec3 right = glm::normalize(glm::cross(forward, glm::vec3(0, 1, 0)));
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) dir += forward;
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) dir -= forward;
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) dir -= right;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) dir += right;
+    moveChar(dir);
 
 }
 

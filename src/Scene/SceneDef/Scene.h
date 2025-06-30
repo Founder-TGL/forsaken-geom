@@ -21,6 +21,7 @@ public:
         float lastTime;
         PlayerEntity* player = nullptr;
         std::vector<CoreEntity*>* collidables;
+        std::vector<CoreEntity*>  spawnBuffer;
 
         void update(float deltaTime);
         void render(Shader& shader);

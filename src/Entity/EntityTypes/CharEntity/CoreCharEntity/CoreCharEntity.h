@@ -6,8 +6,8 @@
 #include "CoreEntity.h"
 #include "Renderable/Renderable.h"
 #include "EntityRig.h"
-#include "BulletEntity.h"
-#include "PreFabs/shapeData.h"
+// #include "BulletEntity.h"
+
 
 class CoreCharEntity : public CoreEntity
 {
@@ -20,6 +20,7 @@ class CoreCharEntity : public CoreEntity
 
         void moveChar(glm::vec3 direction, float deltaTime);
         bool isMoveValid(glm::vec3 direction);
+        BulletEntity* shoot();
         
 };
 

@@ -2,6 +2,9 @@
 
 #include "CoreCharEntity.h"
 #include "Renderable/Renderable.h"
+#include "WorldContext.h"
+#include "PreFabs/shapeData.h"
+#include "BulletEntity.h"
 
 CoreCharEntity::CoreCharEntity(EntityRig entRig, int health, float speed, glm::vec3 pos, glm::vec3 orient) : CoreEntity(entRig, pos, orient), speed(speed), health(health){}
 
@@ -29,4 +32,12 @@ bool CoreCharEntity::isMoveValid(glm::vec3 projectedPosition)
         }
     }
     return true;
+}
+
+BulletEntity* CoreCharEntity::shoot()
+{
+    static Renderable bulletMesh(cubeVertices, cubeVerticesSize,cubeIndices,  cubeIndicesSize);
+    static EntityRig bulletRig(bulletMesh);
+    return new BulletEntity(bulletRig,1,20,position,orientation);
+
 }

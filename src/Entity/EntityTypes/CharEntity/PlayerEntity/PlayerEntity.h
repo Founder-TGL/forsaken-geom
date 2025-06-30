@@ -21,8 +21,6 @@ class PlayerEntity : public CoreCharEntity
 
         void Input(float deltaTime, GLFWwindow* window);
         void moveCamera();
-
-
 };
 
 #endif

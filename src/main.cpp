@@ -58,23 +58,13 @@ int main() {
     collidables.push_back(&testPyramid);
     collidables.push_back(&player); 
     
-    float lastTime = glfwGetTime();
+
     while (!glfwWindowShouldClose(window)) 
     {
-        float currentTime = glfwGetTime();
-        float deltaTime = currentTime - lastTime;
-        lastTime = currentTime;
-
 		shaderProgram.Activate();
-
         player.playerCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
-        player.Input(deltaTime, window);
-        glClearColor(0.0f, 0.0f, 0.01f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        testPyramid.Draw(shaderProgram);
-        player.Draw(shaderProgram);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

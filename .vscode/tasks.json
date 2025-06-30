@@ -17,6 +17,7 @@
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig",
                 "-I${workspaceFolder}/src/Entity/EntityTypes/CharEntity",
                 "-I${workspaceFolder}/src/Entity/EntityTypes/CoreEntity",
+                "${workspaceFolder}/src/Scene/SceneDef",
                 "${workspaceFolder}/src/Shaders/shaderClass.cpp",
                 "${workspaceFolder}/src/main.cpp",
                 "${workspaceFolder}/src/glad.c",
@@ -25,7 +26,7 @@
                 "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/CoreCharEntity/CoreCharEntity.cpp",
                 "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/PlayerEntity/PlayerEntity.cpp",
                 "${workspaceFolder}/src/Entity/EntityTypes/CoreEntity/CoreEntity.cpp",
-
+                "${workspaceFolder}/src/Scene/SceneDef/Scene.cpp",
 
                 "${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig/EntityRig.cpp",
                 "${workspaceFolder}/src/Entity/Definitions/EntityRig/HitBox/hitBox.cpp",

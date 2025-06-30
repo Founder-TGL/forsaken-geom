@@ -5,35 +5,42 @@
             "label": "C/C++: g++.exe build active file",
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
-            "-g",
-            "-std=c++17",
-            "-L${workspaceFolder}/lib",
-            "-I${workspaceFolder}/include",
-            "-I${workspaceFolder}/src",
-            // … all your other -I paths …
+                "-g",
+                "-std=c++17",
+                "-L${workspaceFolder}/lib",
+                "-I${workspaceFolder}/include",
+                "-I${workspaceFolder}/src",
+                "-I${workspaceFolder}/src/Shaders",
+                "-I${workspaceFolder}/src/Entity/Definitions/Camera",
+                "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable",
+                "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/HitBox",
+                "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig",
+                "-I${workspaceFolder}/src/Entity/EntityTypes/CharEntity",
+                "-I${workspaceFolder}/src/Entity/EntityTypes/CoreEntity",
+                "-I${workspaceFolder}/src/Scene/SceneDef",
 
-            // Compile these .cpp files (and only these):
-            "${workspaceFolder}/src/Shaders/shaderClass.cpp",
-            "${workspaceFolder}/src/main.cpp",
-            "${workspaceFolder}/src/glad.c",
-            "${workspaceFolder}/src/Entity/Definitions/Camera/Camera.cpp",
-            "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/CoreCharEntity/CoreCharEntity.cpp",
-            "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/PlayerEntity/PlayerEntity.cpp",
-            "${workspaceFolder}/src/Entity/EntityTypes/CoreEntity/CoreEntity.cpp",
-            "${workspaceFolder}/src/Scene/SceneDef/Scene.cpp",       // keep this
-            "${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig/EntityRig.cpp",
-            "${workspaceFolder}/src/Entity/Definitions/EntityRig/HitBox/hitBox.cpp",
-            "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/VAO/VAO.cpp",
-            "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/VBO/VBO.cpp",
-            "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/EBO/EBO.cpp",
-            "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/Renderable/Renderable.cpp",
-            "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/PreFabs/ShapeData.cpp",
+                "${workspaceFolder}/src/Shaders/shaderClass.cpp",
+                "${workspaceFolder}/src/main.cpp",
+                "${workspaceFolder}/src/glad.c",
+                "${workspaceFolder}/src/Entity/Definitions/Camera/Camera.cpp",
 
-            "-lglfw3dll",
-            "-o",
-            "${workspaceFolder}/cutable.exe"
+                "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/CoreCharEntity/CoreCharEntity.cpp",
+                "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/PlayerEntity/PlayerEntity.cpp",
+                "${workspaceFolder}/src/Entity/EntityTypes/CoreEntity/CoreEntity.cpp",
+                "${workspaceFolder}/src/Scene/SceneDef/Scene.cpp",
+
+                "${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig/EntityRig.cpp",
+                "${workspaceFolder}/src/Entity/Definitions/EntityRig/HitBox/hitBox.cpp",
+                "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/VAO/VAO.cpp",
+                "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/VBO/VBO.cpp",
+                "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/EBO/EBO.cpp",
+                "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/Renderable/Renderable.cpp",
+                "${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable/PreFabs/ShapeData.cpp",
+
+                "-lglfw3dll",
+                "-o",
+                "${workspaceFolder}/cutable.exe"
             ],
-
             "options": {
                 "cwd": "${fileDirname}"
             },

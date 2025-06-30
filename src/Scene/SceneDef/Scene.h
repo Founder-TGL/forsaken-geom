@@ -11,6 +11,8 @@ public:
     public:
         Scene(GLFWwindow* window);
         void updateAndRender(Shader& shader);
+        void setPlayer(PlayerEntity* p) { player = p; addEntity(p);}
+        void addEntity(CoreEntity* entity) { collidables->push_back(entity); }
 
     private:
         GLFWwindow* window;

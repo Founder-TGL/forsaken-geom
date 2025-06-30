@@ -56,6 +56,9 @@ int main() {
     PlayerEntity player(pyramid, 10, 1.0f, width, height);
 
     Scene mainScene(window);
+
+    mainScene.setPlayer(&player);
+    mainScene.addEntity(&testPyramid);
     
     
 

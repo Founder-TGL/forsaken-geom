@@ -8,7 +8,8 @@
 class CoreEntity
 {
     protected:
-    std::vector<CoreEntity*>& getCollidables() {
+    std::vector<CoreEntity*>& getCollidables()
+    {
         return *WorldContext::s_instance->collidables;
     }
 
@@ -20,6 +21,9 @@ class CoreEntity
 
         CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orient);
 
+        void updatePosition();
+        const Hitbox::OBB& getOBB() const { return entityRig.obb;}
+        
         virtual void Draw(Shader& shader);
 
 };

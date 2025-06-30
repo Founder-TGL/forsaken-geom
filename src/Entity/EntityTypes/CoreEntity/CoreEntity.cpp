@@ -6,9 +6,16 @@
 
 CoreEntity::CoreEntity(EntityRig entRig, glm::vec3 pos, glm::vec3 orient) : entityRig(std::move(entRig)), position(pos), orientation(orient)
 {
-    entityRig.position = pos;
-    entityRig.orientation = orient;
+    this->position = pos;
+    this->orientation = orient;
+    updatePosition();
     entityRig.update();
+}
+
+void CoreEntity::updatePosition()
+{
+    entityRig.position = position;
+    entityRig.orientation = orientation;
 }
 
 void CoreEntity::Draw(Shader& shader){entityRig.Draw(shader);}

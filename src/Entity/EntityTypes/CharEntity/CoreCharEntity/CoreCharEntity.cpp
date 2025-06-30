@@ -38,6 +38,6 @@ BulletEntity* CoreCharEntity::shoot()
 {
     static Renderable bulletMesh(cubeVertices, cubeVerticesSize,cubeIndices,  cubeIndicesSize);
     static EntityRig bulletRig(bulletMesh);
-    return new BulletEntity(bulletRig,1,20,position,orientation);
+    return new BulletEntity(bulletRig,1,20,position,orientation, this);
 
 }

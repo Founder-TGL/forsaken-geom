@@ -7,15 +7,19 @@
 
 class BulletEntity : public CoreEntity {
     public:
-        BulletEntity(EntityRig rig,int damage,float speed,const glm::vec3& pos,const glm::vec3& orient);
+        BulletEntity(EntityRig rig,int damage,float speed,const glm::vec3& pos,const glm::vec3& orient, CoreCharEntity* owner);
 
         void travel(float deltaTime);
 
-        bool isAlive() const override {return lifeTimeSeconds < MAX_LIFE;}
+        bool isAlive() const override {return alive && lifeTimeSeconds < MAX_LIFE;}
+    
+        CoreCharEntity* owner = nullptr;
+
 
     private:
         float lifeTimeSeconds = 0.0f;
         static constexpr float MAX_LIFE = 5.0f;
+        bool alive;
         int   damage;
         float speed;
 

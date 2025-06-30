@@ -58,9 +58,6 @@ void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
 
     updatePosition();  
     moveCamera();
-
-    std::cout << "Entity Pos: " << glm::to_string(position) << std::endl;
-    std::cout << "Renderable Pos: " << glm::to_string(entityRig.mesh.position) << std::endl;
 }
 
 void PlayerEntity::moveCamera() {

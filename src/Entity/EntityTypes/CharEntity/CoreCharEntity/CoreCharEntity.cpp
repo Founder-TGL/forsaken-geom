@@ -20,8 +20,11 @@ bool CoreCharEntity::isMoveValid(glm::vec3 projectedPosition)
 
     for(CoreEntity* ent: getCollidables())
     {
+        if (ent == this) continue;
+        
         if (Hitbox::doOBBsIntersect(projectedOBB, ent->getOBB()))
         {
+            
             return false;
         }
     }

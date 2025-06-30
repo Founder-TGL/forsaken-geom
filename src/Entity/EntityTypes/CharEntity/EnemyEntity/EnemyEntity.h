@@ -3,6 +3,8 @@
 
 #include "CoreCharEntity/CoreCharEntity.h"
 #include "CoreEntity.h"
+#include "EntityRig.h"
+#include <glm/glm.hpp>
 
 class EnemyEntity : public CoreCharEntity
 {
@@ -12,6 +14,6 @@ class EnemyEntity : public CoreCharEntity
 
         bool targetDetection(CoreEntity* target);
 
-    };
+};
 
 #endif

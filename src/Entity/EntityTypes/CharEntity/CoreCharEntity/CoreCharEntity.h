@@ -20,6 +20,8 @@ class CoreCharEntity : public CoreEntity
 
         void moveChar(glm::vec3 direction, float deltaTime);
         bool isMoveValid(glm::vec3 direction);
+        bool isAlive() const override {return health > 0;}
+
         BulletEntity* shoot();
         
 };

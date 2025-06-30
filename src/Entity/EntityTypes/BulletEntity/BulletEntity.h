@@ -6,17 +6,20 @@
 #include "EntityRig.h"
 
 class BulletEntity : public CoreEntity {
-public:
-    BulletEntity(EntityRig rig,int damage,float speed,const glm::vec3& pos,const glm::vec3& orient);
+    public:
+        BulletEntity(EntityRig rig,int damage,float speed,const glm::vec3& pos,const glm::vec3& orient);
 
-    void travel(float deltaTime);
+        void travel(float deltaTime);
 
-private:
-    int   damage;
-    float speed;
-    float lifeTimeSeconds = 0.0f;
+        bool isAlive() const override {return lifeTimeSeconds < MAX_LIFE;}
 
-    CoreCharEntity* entityHit(const glm::vec3& projectedPosition);
+    private:
+        float lifeTimeSeconds = 0.0f;
+        static constexpr float MAX_LIFE = 5.0f;
+        int   damage;
+        float speed;
+
+        CoreCharEntity* entityHit(const glm::vec3& projectedPosition);
 };
 
 #endif 

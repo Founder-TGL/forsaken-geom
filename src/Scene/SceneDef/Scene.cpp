@@ -49,6 +49,20 @@ void Scene::update(float dt)
     collidables->push_back(e);
   }
 
+  auto& list = *collidables;
+  list.erase(
+    std::remove_if(list.begin(), list.end(),
+      [&](CoreEntity* ent) {
+        if (!ent->isAlive()) {
+          delete ent;          // free memory
+          return true;         // remove from vector
+        }
+        return false;          // keep alive entities
+      }),
+    list.end()
+  );
+
+
 }
 
 void Scene::render(Shader& shader) {

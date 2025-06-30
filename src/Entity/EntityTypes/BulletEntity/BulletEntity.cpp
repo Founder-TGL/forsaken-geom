@@ -10,6 +10,7 @@ BulletEntity::BulletEntity(EntityRig rig,int damage,float speed,const glm::vec3&
 
 void BulletEntity::travel(float dt)
 {
+    
     glm::vec3 projectedPosition = position + orientation * speed * dt;
 
     if (auto* hitChar = entityHit(projectedPosition)) {

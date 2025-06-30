@@ -69,7 +69,7 @@ int main() {
         player.playerCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
         player.Input(deltaTime, window);
-
+        std::cout << "Player position: " << glm::to_string(player.position) << std::endl;
         glClearColor(0.0f, 0.0f, 0.01f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

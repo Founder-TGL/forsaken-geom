@@ -17,7 +17,7 @@ class CoreCharEntity : public CoreEntity
         bool isDead() const {  std::cout << "player health " << health << std::endl; return health <= 0;}
         // void Draw(Shader& shader) override;
 
-        void moveChar(glm::vec3 direction);
+        void moveChar(glm::vec3 direction, float deltaTime);
         bool isMoveValid(glm::vec3 direction);
 };
 

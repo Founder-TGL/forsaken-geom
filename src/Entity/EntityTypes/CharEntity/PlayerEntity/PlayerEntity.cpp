@@ -27,6 +27,8 @@ void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
         orientation = glm::normalize(glm::vec3(sin(glm::radians(yaw)),0.0f,cos(glm::radians(yaw))));
 
         glfwSetCursorPos(window, width / 2, height / 2);
+
+        
     }
 
     glm::vec3 dir(0.0f);
@@ -37,8 +39,20 @@ void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) dir -= forward;
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) dir -= right;
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) dir += right;
-    moveChar(dir);
+    moveChar(dir, deltaTime);
 
+
+    // Mouse lock/unlock
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouseLocked) {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+        mouseLocked = true;
+        glfwSetCursorPos(window, width / 2, height / 2);
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        mouseLocked = false;
+    }
 }
 
 void PlayerEntity::moveCamera() {

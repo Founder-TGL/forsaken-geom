@@ -17,6 +17,7 @@ void CoreEntity::updatePosition()
 {
     entityRig.position = position;
     entityRig.orientation = orientation;
+    entityRig.update();
 }
 
 void CoreEntity::Draw(Shader& shader){entityRig.Draw(shader);}

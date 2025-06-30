@@ -51,11 +51,9 @@ int main() {
     Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
     EntityRig pyramidTestRig(pyramid);
-    CoreEntity testPyramid(pyramidTestRig);
+    CoreCharEntity testPyramid(pyramidTestRig, 10, 0.1f,  glm::vec3{0.0f, 0.0f, 5.0f});
 
-    Camera camera(width, height, glm::vec3(0.0f, 1.0f, 2.0f));
-
-    PlayerEntity player(pyramid, 10, width, height);
+    PlayerEntity player(pyramid, 10, 0.1f, width, height);
 
     collidables.push_back(&testPyramid);
     collidables.push_back(&player); 

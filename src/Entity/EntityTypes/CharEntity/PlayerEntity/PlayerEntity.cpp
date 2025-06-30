@@ -3,12 +3,12 @@
 #include "PlayerEntity.h"
 #include "Renderable/Renderable.h"
 
-PlayerEntity::PlayerEntity(EntityRig entRig, int health, int width,int height,glm::vec3 pos, glm::vec3 orient) 
-: CoreCharEntity(entRig, health, pos, orient), playerCamera(width, height, pos + glm::vec3(0.0f, followHeight, followDist))
+PlayerEntity::PlayerEntity(EntityRig entRig, int health, int speed,  int width,int height,glm::vec3 pos, glm::vec3 orient) 
+: CoreCharEntity(entRig, health,speed, pos, orient), playerCamera(width, height, pos + glm::vec3(0.0f, followHeight, followDist))
 {
     glm::vec3 viewDir = entityRig.position - playerCamera.position;
     playerCamera.orientation = glm::normalize(glm::vec3(viewDir.x, viewDir.y, 0.0f));
-    // moveCamera();
+    moveCamera();
 }
 
 void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
@@ -39,5 +39,27 @@ void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) dir += right;
     moveChar(dir);
 
+}
+
+void PlayerEntity::moveCamera() {
+
+
+    // 1) get the player’s flat forward direction
+    glm::vec3 forward = orientation;
+    forward.y = 0.0f;
+    forward = glm::normalize(forward);
+
+    // 2) compute the desired camera position behind and above
+    glm::vec3 camPos = position
+                     - forward * followDist      // behind
+                     + glm::vec3(0.0f, followHeight, 0.0f); // up
+
+    // 3) point camera at the player’s position
+    glm::vec3 lookDir = position - camPos;
+    lookDir = glm::normalize(lookDir);
+
+    // 4) write into your Camera
+    playerCamera.position    = camPos;
+    playerCamera.orientation = lookDir;
 }
 

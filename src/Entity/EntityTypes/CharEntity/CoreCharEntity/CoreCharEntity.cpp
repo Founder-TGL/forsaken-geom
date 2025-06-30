@@ -3,12 +3,12 @@
 #include "CoreCharEntity.h"
 #include "Renderable/Renderable.h"
 
-CoreCharEntity::CoreCharEntity(EntityRig entRig, int health,  glm::vec3 pos, glm::vec3 orient) : CoreEntity(entRig, pos, orient), health(health){}
+CoreCharEntity::CoreCharEntity(EntityRig entRig, int health, int speed, glm::vec3 pos, glm::vec3 orient) : CoreEntity(entRig, pos, orient), speed(speed), health(health){}
 
 void CoreCharEntity::moveChar(glm::vec3 direction)
 {
     glm::vec3 projectedPosition;
-    projectedPosition = position + speed * direction;
+    projectedPosition += position + speed * direction;
 
     if(isMoveValid(projectedPosition))position = projectedPosition;
     updatePosition();
@@ -27,9 +27,4 @@ bool CoreCharEntity::isMoveValid(glm::vec3 projectedPosition)
         }
     }
     return true;
-}
-
-void CoreCharEntity::Draw(Shader& shader)
-{
-
 }

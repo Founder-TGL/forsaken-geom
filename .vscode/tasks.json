@@ -17,13 +17,16 @@
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/EntityRig",
                 "-I${workspaceFolder}/src/Entity/EntityTypes/CharEntity",
                 "-I${workspaceFolder}/src/Entity/EntityTypes/CoreEntity",
+                "-I${workspaceFolder}/src/Entity/EntityTypes/BulletEntity",
                 "-I${workspaceFolder}/src/Scene/SceneDef",
+                
 
                 "${workspaceFolder}/src/Shaders/shaderClass.cpp",
                 "${workspaceFolder}/src/main.cpp",
                 "${workspaceFolder}/src/glad.c",
                 "${workspaceFolder}/src/Entity/Definitions/Camera/Camera.cpp",
 
+                "${workspaceFolder}/src/Entity/EntityTypes/BulletEntity/BulletEntity.cpp",
                 "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/CoreCharEntity/CoreCharEntity.cpp",
                 "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/EnemyEntity/EnemyEntity.cpp",
                 "${workspaceFolder}/src/Entity/EntityTypes/CharEntity/PlayerEntity/PlayerEntity.cpp",

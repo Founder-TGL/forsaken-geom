@@ -26,12 +26,10 @@ void Scene::updateAndRender(Shader& shader) {
 
 void Scene::update(float dt) {
   player->Input(dt, window);
-  for (auto* e : *collidables)
-  {
-    CoreEntity* ent;
-    if (auto e = dynamic_cast<EnemyEntity*>(ent)) {
-      enemyInteraction(e);
-    }
+  for (CoreEntity* ent : *collidables) {
+      if (auto enemy = dynamic_cast<EnemyEntity*>(ent)) {
+          enemyInteraction(enemy);
+      }
   }
 }
 

@@ -16,7 +16,7 @@
 #include "EntityRig.h"
 #include "CoreCharEntity/CoreCharEntity.h"
 #include "PlayerEntity/PlayerEntity.h"
-// #include "Scene.h"
+#include "Scene.h"
 
 #include <math.h>
 
@@ -55,8 +55,8 @@ int main() {
 
     PlayerEntity player(pyramid, 10, 1.0f, width, height);
 
-    collidables.push_back(&testPyramid);
-    collidables.push_back(&player); 
+    Scene mainScene(window);
+    
     
 
     while (!glfwWindowShouldClose(window)) 

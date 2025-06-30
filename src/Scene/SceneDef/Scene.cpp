@@ -1,11 +1,13 @@
 #include "Scene.h"
-#include "HitBox/hitBox.h"
+#include "hitBox.h"
+#include "WorldContext.h"
 #include <iostream>
+
 Scene::Scene(GLFWwindow* win)
   : window(win),
     lastTime(glfwGetTime())
 {
-  collidables = WorldContext::Instance().collidables;
+  collidables = WorldContext::Instance()->collidables;
 }
 
 void Scene::updateAndRender(Shader& shader) {
@@ -20,9 +22,7 @@ void Scene::updateAndRender(Shader& shader) {
 }
 
 void Scene::update(float dt) {
-
   player->Input(dt, window);
-
 }
 
 void Scene::render(Shader& shader) {

@@ -23,6 +23,7 @@ public:
 
         void update(float deltaTime);
         void render(Shader& shader);
+        void enemyInteraction(EnemyEntity* enemy);
 };
 
 

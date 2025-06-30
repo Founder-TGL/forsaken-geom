@@ -23,6 +23,10 @@ class CoreEntity
 
         void updatePosition();
         const Hitbox::OBB& getOBB() const { return entityRig.obb;}
+
+        void aimAt(CoreEntity* target);
+
+        void enemyInteraction();
         
         virtual void Draw(Shader& shader);
 

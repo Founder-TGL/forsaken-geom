@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "hitBox.h"
 #include "WorldContext.h"
+#include "EnemyEntity/EnemyEntity.h"
 #include <iostream>
 
 Scene::Scene(GLFWwindow* win)
@@ -21,8 +22,17 @@ void Scene::updateAndRender(Shader& shader) {
   render(shader);
 }
 
+
+
 void Scene::update(float dt) {
   player->Input(dt, window);
+  for (auto* e : *collidables)
+  {
+    CoreEntity* ent;
+    if (auto e = dynamic_cast<EnemyEntity*>(ent)) {
+      enemyInteraction(e);
+    }
+  }
 }
 
 void Scene::render(Shader& shader) {
@@ -36,4 +46,9 @@ void Scene::render(Shader& shader) {
     e->Draw(shader);
 
   glfwSwapBuffers(window);
+}
+
+void Scene::enemyInteraction(EnemyEntity* enemy)
+{
+  enemy->aimAt(this->player);
 }

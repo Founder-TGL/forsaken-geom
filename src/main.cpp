@@ -17,6 +17,7 @@
 #include "CoreCharEntity/CoreCharEntity.h"
 #include "PlayerEntity/PlayerEntity.h"
 #include "Scene.h"
+#include "EnemyEntity/EnemyEntity.h"
 
 #include <math.h>
 
@@ -51,7 +52,7 @@ int main() {
     Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
     EntityRig pyramidTestRig(pyramid);
-    CoreCharEntity testPyramid(pyramidTestRig, 10, 0.1f,  glm::vec3{0.0f, 0.0f, 5.0f});
+    EnemyEntity testPyramid(pyramidTestRig, 10, 0.1f,  glm::vec3{0.0f, 0.0f, 5.0f});
 
     PlayerEntity player(pyramid, 10, 1.0f, width, height);
 
@@ -64,14 +65,7 @@ int main() {
 
     while (!glfwWindowShouldClose(window)) 
     {
-		// shaderProgram.Activate();
-
-
-        // mainScene.getPlayer()->playerCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
-
         mainScene.updateAndRender(shaderProgram);
-
-        // glfwSwapBuffers(window);
         glfwPollEvents();
     }   
 

@@ -65,9 +65,11 @@ int main() {
     while (!glfwWindowShouldClose(window)) 
     {
 		shaderProgram.Activate();
-        player.playerCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
 
+        mainScene.getPlayer()->playerCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+
+        mainScene.updateAndRender(shaderProgram);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

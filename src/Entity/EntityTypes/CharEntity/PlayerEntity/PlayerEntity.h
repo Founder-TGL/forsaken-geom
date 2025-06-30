@@ -17,7 +17,7 @@ class PlayerEntity : public CoreCharEntity
         float yaw = 0.0f;
         bool mouseLocked = false;
 
-        PlayerEntity(EntityRig entRig, int health, int speed, int width, int height, glm::vec3 pos = glm::vec3{0.0f, 0.0f, 0.0f}, glm::vec3 orient = glm::vec3{0.0f, 0.0f, 1.0f});
+        PlayerEntity(EntityRig entRig, int health, float speed, int width, int height, glm::vec3 pos = glm::vec3{0.0f, 0.0f, 0.0f}, glm::vec3 orient = glm::vec3{0.0f, 0.0f, 1.0f});
 
         void Input(float deltaTime, GLFWwindow* window);
         void moveCamera();

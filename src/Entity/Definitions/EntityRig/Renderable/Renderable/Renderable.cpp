@@ -30,15 +30,16 @@ Renderable::Renderable(float* vertices, size_t vertSize, GLuint* indices, size_t
     }
  void Renderable::Draw(Shader& shader) {
         glm::mat4 model = glm::mat4(1.0f);
-        
-        std::cout << "Drawing frame\n"; 
-        std::cout << "Index Count: " << indexCount << std::endl;
 
         model = glm::translate(model, position);
 
         // 3) build a "look‐at" quaternion turning +Z → forward
         glm::vec3 worldUp{0,1,0};
-        glm::quat rot = glm::quatLookAt(glm::normalize(orientation), worldUp);
+        glm::vec3 forward = glm::normalize(orientation);
+        if (glm::length(forward) < 0.001f || abs(glm::dot(forward, worldUp)) > 0.99f)
+            forward = glm::vec3(0.0f, 0.0f, 1.0f); // fallback forward
+
+        glm::quat rot = glm::quatLookAt(forward, worldUp);
         model *= glm::toMat4(rot);
 
 

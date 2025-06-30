@@ -53,7 +53,7 @@ int main() {
     EntityRig pyramidTestRig(pyramid);
     CoreCharEntity testPyramid(pyramidTestRig, 10, 0.1f,  glm::vec3{0.0f, 0.0f, 5.0f});
 
-    PlayerEntity player(pyramid, 10, 0.1f, width, height);
+    PlayerEntity player(pyramid, 10, 1.0f, width, height);
 
     collidables.push_back(&testPyramid);
     collidables.push_back(&player); 

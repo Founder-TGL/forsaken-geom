@@ -1,11 +1,14 @@
 #include <glm/glm.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
 
+#include <glm/gtx/string_cast.hpp>
 #include "PlayerEntity.h"
 #include "Renderable/Renderable.h"
 
-PlayerEntity::PlayerEntity(EntityRig entRig, int health, int speed,  int width,int height,glm::vec3 pos, glm::vec3 orient) 
-: CoreCharEntity(entRig, health,speed, pos, orient), playerCamera(width, height, pos + glm::vec3(0.0f, followHeight, followDist))
+PlayerEntity::PlayerEntity(EntityRig entRig, int health, float speed,  int width,int height,glm::vec3 pos, glm::vec3 orient) 
+: CoreCharEntity(entRig, health,speed, pos, orient), playerCamera(width, height, pos + glm::vec3(0.0f, followHeight, followDist)), width(width), height(height)
 {
+    entityRig = entRig;
     glm::vec3 viewDir = entityRig.position - playerCamera.position;
     playerCamera.orientation = glm::normalize(glm::vec3(viewDir.x, viewDir.y, 0.0f));
     moveCamera();
@@ -41,7 +44,6 @@ void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) dir += right;
     moveChar(dir, deltaTime);
 
-
     // Mouse lock/unlock
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouseLocked) {
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
@@ -53,6 +55,12 @@ void PlayerEntity::Input(float deltaTime, GLFWwindow* window)
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         mouseLocked = false;
     }
+
+    updatePosition();  
+    moveCamera();
+
+    std::cout << "Entity Pos: " << glm::to_string(position) << std::endl;
+    std::cout << "Renderable Pos: " << glm::to_string(entityRig.mesh.position) << std::endl;
 }
 
 void PlayerEntity::moveCamera() {

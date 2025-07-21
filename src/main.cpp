@@ -49,7 +49,7 @@ int main() {
     world.collidables = &collidables;
     WorldContext::SetInstance(&world); 
 
-    Shader shaderProgram("Shaders/default.vert", "Shaders/default.frag");
+    Shader shaderProgram("src/Shaders/default.vert", "src/Shaders/default.frag");
     Renderable pyramid(pyramidVertices, pyramidVerticesSize, pyramidIndices, pyramidIndicesSize);
     EntityRig pyramidTestRig(pyramid);
     EnemyEntity testPyramid(pyramidTestRig, 10, 0.1f, 10,  glm::vec3{0.0f, 0.0f, 10.0f});

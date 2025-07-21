@@ -110,5 +110,6 @@
     "cinttypes": "cpp",
     "typeinfo": "cpp",
     "filesystem": "cpp"
-  }
+  },
+  "cmake.ignoreCMakeListsMissing": true
 }

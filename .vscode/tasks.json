@@ -10,7 +10,7 @@
                 "-L${workspaceFolder}/lib",
                 "-I${workspaceFolder}/include",
                 "-I${workspaceFolder}/src",
-                "-I${workspaceFolder}/src/Shaders",
+                "-I${workspaceFolder}/Shaders",
                 "-I${workspaceFolder}/src/Entity/Definitions/Camera",
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/Renderable",
                 "-I${workspaceFolder}/src/Entity/Definitions/EntityRig/HitBox",
@@ -21,7 +21,7 @@
                 "-I${workspaceFolder}/src/Scene/SceneDef",
                 
 
-                "${workspaceFolder}/src/Shaders/shaderClass.cpp",
+                "${workspaceFolder}/Shaders/shaderClass.cpp",
                 "${workspaceFolder}/src/main.cpp",
                 "${workspaceFolder}/src/glad.c",
                 "${workspaceFolder}/src/Entity/Definitions/Camera/Camera.cpp",
